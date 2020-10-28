@@ -276,7 +276,8 @@ L.Control.EasyPrint = L.Control.extend({
     var plugin = this;
     domtoimage.toPng(plugin.gridContainer, {
       width: parseInt(plugin.gridContainer.style.width.replace('px')),
-      height: parseInt(plugin.gridContainer.style.height.replace('px'))
+      height: parseInt(plugin.gridContainer.style.height.replace('px')),
+      useCredentials: plugin.options.useCredentials
     })
         .then(function (dataUrl) {
           var blob = plugin._dataURItoBlob(dataUrl);
