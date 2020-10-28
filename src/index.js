@@ -1,4 +1,4 @@
-var domtoimage = require('dom-to-image');
+var domtoimage = require('dom-to-image-more');
 var fileSaver = require('file-saver');
 
 L.Control.EasyPrint = L.Control.extend({
@@ -28,7 +28,9 @@ L.Control.EasyPrint = L.Control.extend({
     dpi: 150,
     referenceDOMHeader: null,
     referenceDOMLayers: null,
-    referenceDOMFooter: null
+    referenceDOMFooter: null,
+    // Should credentials (cookies) be used by the underlying XmlHttpRequest ?
+    useCredentials: false
   },
 
   gridContainer: null,
@@ -182,7 +184,9 @@ L.Control.EasyPrint = L.Control.extend({
     var plugin = this;
     domtoimage.toPng(this.mapContainer, {
       width: parseInt(this.originalState.mapWidth.replace('px')),
-      height: parseInt(this.originalState.mapHeight.replace('px'))
+      height: parseInt(this.originalState.mapHeight.replace('px')),
+      // pass flag from options to dom-to-image
+      useCredentials: this.options.useCredentials
     })
         .then(function (dataUrl) {
           plugin.blankDiv = document.createElement("div");
@@ -272,7 +276,8 @@ L.Control.EasyPrint = L.Control.extend({
     var plugin = this;
     domtoimage.toPng(plugin.gridContainer, {
       width: parseInt(plugin.gridContainer.style.width.replace('px')),
-      height: parseInt(plugin.gridContainer.style.height.replace('px'))
+      height: parseInt(plugin.gridContainer.style.height.replace('px')),
+      useCredentials: plugin.options.useCredentials
     })
         .then(function (dataUrl) {
           var blob = plugin._dataURItoBlob(dataUrl);
