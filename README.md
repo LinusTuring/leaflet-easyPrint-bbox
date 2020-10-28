@@ -8,7 +8,7 @@ This fork of [rowanwins/leaflet-easyPrint](https://github.com/rowanwins/leaflet-
 * Supports saving to png, as well as printing
 * Compatible with both Leaflet v1+ and 0.7
 * Tested on Chrome, Firefox
-  * Incompatible with IE & Edge due to `dom-to-image` dependency
+  * Incompatible with IE & Edge due to `dom-to-image-more` dependency
 
 Check out the [demo](http://rowanwins.github.com/leaflet-easyPrint/).
 
@@ -53,4 +53,4 @@ Many thanks to Rowan Winsemius for [rowanwins/leaflet-easyPrint](https://github.
 
 Huge hats off go to [mourner](https://github.com/mourner) and all the [contributors](https://github.com/Leaflet/Leaflet/graphs/contributors) to the leaflet.js project, it's an amazing piece of open source software!
 
-Also uses [dom-to-image](https://github.com/tsayen/dom-to-image) and [FileSaver](https://github.com/eligrey/FileSaver.js) under the hood.
+Also uses [dom-to-image-more](https://github.com/1904labs/dom-to-image-more) and [FileSaver](https://github.com/eligrey/FileSaver.js) under the hood.
